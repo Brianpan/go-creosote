@@ -41,16 +41,11 @@ func ScanAll(dirname string) (r []CreosoteResult, err error) {
 	}
 
 	for _, file := range files {
-		_, err := os.Open(file)
-		if err != nil {
-			fmt.Println("err, ", err)
-			continue
-		}
 		ps := &PythonScanner{
 			File: file,
 		}
 		if lineno, state, err := ps.Scan(); err != nil {
-			fmt.Println("err, ", err)
+			// fmt.Println("err, ", err)
 			continue
 		} else {
 			if state != OK {
