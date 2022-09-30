@@ -34,7 +34,7 @@ const (
 
 func ScanAll(dirname string) (r []CreosoteResult, err error) {
 	r = make([]CreosoteResult, 0)
-	pattern := fmt.Sprintf("%s/*.py", dirname)
+	pattern := fmt.Sprintf("%s/**/*.py", dirname)
 	files, err := filepathx.Glob(pattern)
 	if err != nil {
 		return
@@ -116,6 +116,8 @@ func (ps *PythonScanner) Scan() (lineno int, state ScanState, err error) {
 	if err != nil {
 		return
 	}
+
+	defer in.Close()
 
 	a, err := parser.Parse(in, ps.File, py.ExecMode)
 
