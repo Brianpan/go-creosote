@@ -7,7 +7,7 @@ import (
 
 	"github.com/yargevad/filepathx"
 
-	"github.com/Supplyframe/pythonast/walk"
+	"github.com/brianpan/go-creosote/walk"
 	"github.com/go-python/gpython/ast"
 	_ "github.com/go-python/gpython/modules"
 	"github.com/go-python/gpython/parser"
