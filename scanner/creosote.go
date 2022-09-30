@@ -55,6 +55,7 @@ func ScanAll(dirname string) (r []CreosoteResult, err error) {
 					Lineno:   lineno,
 				})
 			}
+			walk.Cleanup()
 		}
 	}
 
